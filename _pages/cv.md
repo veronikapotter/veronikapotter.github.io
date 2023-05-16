@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Veronika Potter - CV"
+title: "CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -10,7 +10,7 @@ redirect_from:
 Education
 ======
 * Ph.D. - Computer Science, Northeastern University (expected May 2027)
-* B.A - Computer Science, Univerisity of Vermont (Jan. 2022)
+* B.A. - Computer Science, Univerisity of Vermont (Jan. 2022)
   * Thesis: Interdisciplinary Computer Science (CS) Education - How Can We Tailor CS to English Majors
 * B.S. - Mathematics, University of Vermont (Jan. 2022)
 
@@ -55,7 +55,7 @@ Fellowships and Grants
 
 Awards and Honors
 ======
-* Senior in Computer - University of Vermont (May. 2022)
+* Senior in Computer - University of Vermont (May 2022)
 * University of Vermont Computer Science Fair Winner (web design) (Dec. 2021)
 * Phi Beta Kappa - University of Vermont (Dec. 2021)
-* Senior in Mathematics - University of Vermont (May. 2020)
+* Senior in Mathematics - University of Vermont (May 2020)
