@@ -2,11 +2,19 @@
   <div>
     <h3 class="fw-bold border-bottom pb-3 mb-5">Publications</h3>
     {% if page.title == "Home" %}
+    <ul>
       {% for paper in site.data.publications.featured %}
-          {{ paper.title }}
-          <a href="{{ paper.pdf_url }}" class="pdf-link">[pdf]</a>
-          <a href="{{ paper.link_url }}" class="external-link">[link]</a>
+        <li>
+            <div class="paper_ttle">{{ paper.title }}</div>
+            <div class="paper-links">
+              <a href="{{ paper.pdf_url }}" class="pdf-link">[pdf]</a>
+              <a href="{{ paper.link_url }}" class="external-link">[link]</a>
+            </div>
+          <!-- <a href="{{ paper.pdf_url }}" class="pdf-link">[pdf]</a>
+          <a href="{{ paper.link_url }}" class="external-link">[link]</a> -->
+        </li>
       {% endfor %}
+    </ul>
     {% else %}
       {% for paper in site.data.publications.index %}
           {{ paper.title }}
