@@ -1,22 +1,28 @@
-<header class="d-flex flex-column flex-md-row align-items-center pb-3 mb-5 border-bottom">
-  <div class="flex-fill">
-    <a href="{{ site.github.url }}/" class="d-flex align-items-center text-decoration-none">
-      <span class="fs-4 fw-bold">{{ site.title }}</span>
-    </a>
-    <a href="{{ site.github.url }}/" class="d-flex align-items-center text-decoration-none">
-      <span>{{ site.description }}</span>
-    </a>
+<header class="pb-3 mb-5 border-bottom">
+  <div class="row align-items-center">
+    <div class="col-md-4">
+      <a href="{{ site.github.url }}/" class="d-flex align-items-center text-decoration-none">
+        <span class="fs-4 fw-bold">{{ site.title }}</span>
+      </a>
+      <a href="{{ site.github.url }}/" class="d-flex align-items-center text-decoration-none">
+        <span>{{ site.description }}</span>
+      </a>
+    </div>
+    
+    <div class="col-md-4 text-center">
+      <div class="social-media-icons">
+        {% for item in site.data.settings.social %}
+          <a href="{{ item.link }}" class="mx-2 fs-5"><i class="fab fa-{{ item.icon }}"></i></a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="col-md-4 text-end">
+      <nav>
+        {% for item in site.data.settings.menu %}
+          <a class="me-3 py-2 text-decoration-none" href="{{ site.github.url }}{{ item.url }}">{{ item.name }}</a>
+        {% endfor %}
+      </nav>
+    </div>
   </div>
-  
-  <div class="d-flex justify-content-center social-media-icons">
-    {% for item in site.data.settings.social %}
-      <a href="{{ item.link }}" class="mx-2 fs-5"><i class="fab fa-{{ item.icon }}"></i></a>
-    {% endfor %}
-  </div>
-  
-  <nav class="flex-fill d-flex justify-content-end">
-    {% for item in site.data.settings.menu %}
-      <a class="me-3 py-2 text-decoration-none" href="{{ site.github.url }}{{ item.url }}">{{ item.name }}</a>
-    {% endfor %}
-  </nav>
 </header>
