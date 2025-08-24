@@ -2,6 +2,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>{{ page.title }} | {{ site.title }}</title>
+  <div class="col-md-6 text-end social-media-icons">
+    {% for item in site.data.settings.social %}
+      <a href="{{ item.link }}" class="ms-3 fs-5"><i class="fab fa-{{ item.icon }}"></i></a>
+    {% endfor %}
+  </div>
   <link rel="stylesheet" href="{{ site.github.url }}/assets/libs/bootstrap/bootstrap.min.css">
   <script defer src="{{ site.github.url }}/assets/libs/fontawesome/all.min.js"></script>
   <link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css">
