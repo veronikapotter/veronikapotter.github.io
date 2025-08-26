@@ -15,9 +15,12 @@ courses:
 - {name: 'Quantum Mechanics', url: 'quantum-mechanics'}
 - {name: 'Stellar Structures', url: 'stellar-structures'}
 
+# All social links. 
 social:
 - {icon: 'github', link: 'https://github.com/veronikapotter'}
 - {icon: 'linkedin', link: 'https://linkedin.com/in/lenpaul'}
+- {icon: 'graduate', link: 'https://linkedin.com/in/lenpaul'}
+- {icon: 'email', link: 'https://linkedin.com/in/lenpaul'}
 
 # contacts:
 # - {name: 'Dr. Academia', title: 'Professor', department: 'Physics & Astronomy', institution: 'Some University', institution_address: '1 Main Street, Canada', phone: '(000) 000-0000', email: 'hello@university.edu', office: 'Science Building 505', image: 'assets/img/contact.jpg'}
