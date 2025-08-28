@@ -3,7 +3,7 @@ layout: home
 title: "Home"
 ---
 
-I'm Veronika Potter a Computer Science PhD Cantitidate at Northeastern University (Boston, MA, USA) advised by [Stephen Intille](https://ccis.northeastern.edu/home/intille/). 
+I am a Computer Science PhD Cantitidate at Northeastern University (Boston, MA, USA) advised by [Stephen Intille](https://ccis.northeastern.edu/home/intille/). 
 The first two years of my PhD were funded by the Khoury Fellowship. 
 
 Broadly speaking I'm interested in problems (1) using technology to improve **individuals** lives and (2) accurately and effectively communicating data. 
