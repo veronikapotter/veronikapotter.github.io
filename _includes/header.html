@@ -2,7 +2,11 @@
   <div class="row align-items-center">
     <div class="col-md-4">
       <a href="{{ site.github.url }}/" class="d-flex align-items-center text-decoration-none">
-        <span class="fs-4 fw-bold">{{ site.title }}</span>
+        <span class="fs-4 fw-bold">{{ site.title }}       <div class="social-media-icons">
+        {% for item in site.data.settings.social %}
+          <a href="{{ item.link }}" class="mx-2 fs-5"><i class="fab fa-{{ item.icon }}"></i></a>
+        {% endfor %}
+      </div> </span>
       </a>
       <a href="{{ site.github.url }}/" class="d-flex align-items-center text-decoration-none">
         <span>{{ site.description }}</span>
@@ -10,13 +14,13 @@
     </div>
     
     <!-- In ./settings.yaml social -->
-    <div class="col-md-4 text-center">
+    <!-- <div class="col-md-4 text-center">
       <div class="social-media-icons">
         {% for item in site.data.settings.social %}
           <a href="{{ item.link }}" class="mx-2 fs-5"><i class="fab fa-{{ item.icon }}"></i></a>
         {% endfor %}
       </div>
-    </div>
+    </div> -->
 
     <div class="col-md-4 text-end">
       <nav>
