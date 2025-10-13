@@ -37,6 +37,9 @@
         <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</a></li>
       {% endif %}
 
+
+  
+
       <!-- Font Awesome and Academicons icons / Academic websites -->
       {% if author.academia %}
         <li><a href="{{ author.academia }}"><i class="ai ai-academia ai-fw icon-pad-right" aria-hidden="true"></i>Academia</a></li>
@@ -164,7 +167,39 @@
       {% endif %}
       {% if author.zhihu %}
       <li><a href="https://www.zhihu.com/people/{{ author.zhihu }}"><i class="fab fa-fw fa-zhihu icon-pad-right" aria-hidden="true"></i>Zhihu</a></li>
-      {% endif %}      
+      {% endif %}  
+      <li><a href="{{ site.baseurl }}/assets/pdfs/Potter_Resume_2025.pdf" style="color: inherit; text-decoration: none;"><i class="fas fa-file-pdf" style="margin-right: 4px;"></i>Resume</a></li>   
     </ul>
   </div>
 </div>
+
+
+<!-- <ul style="list-style-type: none; padding: 10px 0 0 0; margin: 0; border-top: 1px solid #ccc;">
+  <li><a href="link_resume">Resume</a></li>
+  <li><a href="link_cv">CV</a></li>
+</ul> -->
+
+<!-- <ul style="list-style-type: none; padding: 10px 0 0 0; margin: 0; border-top: 1px solid #ccc;">
+  <li style="display: inline; margin-right: 15px;">
+    <a href="link_resume" style="color: inherit; text-decoration: none;">
+      <i class="fas fa-file-pdf"></i> Resume
+    </a>
+  </li>
+  <li style="display: inline;">
+    <a href="link_cv" style="color: inherit; text-decoration: none;">
+      <i class="fas fa-file-pdf"></i>   CV
+    </a>
+  </li>
+</ul>
+</div> -->
+
+<!-- <div>
+<ul style="list-style-type: none; padding: 10px 0 0 0; margin: 0; border-top: 1px solid #ccc;">
+  <li style="display: inline;">
+    <i class="fas fa-file-pdf" style="margin-right: 4px;"></i>
+    <a href="{{ site.baseurl }}/assets/pdfs/resume.pdf" style="color: inherit; text-decoration: none;">Resume</a>
+    <span style="margin: 0 10px;">|</span>
+    <a href="{{ site.baseurl }}/assets/pdfs/cv.pdf" style="color: inherit; text-decoration: none;">CV</a>
+  </li>
+</ul>
+</div> -->

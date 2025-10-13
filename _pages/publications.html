@@ -5,32 +5,382 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
 
-{% include base_path %}
+<style>
+/* Container for a publication */
+h2 {
+  font-size: 1.4em;
+  margin-bottom: 0.2em;
+}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+.publication {
+  margin-bottom: 1.5em;
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+.publication h3 {
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
+}
+
+/* Author & venue lines */
+.publication p {
+  margin: 0.2em 0;
+}
+
+/* Abstract paragraph (hidden by default) */
+.abstract {
+  display: none;
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+.citation {
+  display: none;
+  margin-top: 0.5em;
+}
+
+.link-row {
+  display: inline-flex;
+  align-items: center;      /* vertically center all items */
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.2;         /* ensures baseline alignment */
+  gap: 0.4em;               /* space between items */
+}
+
+.link-row .link {
+  color: #52adc8;
+  text-decoration: none;
+  white-space: nowrap;      /* prevent wrapping inside links */
+}
+
+.link-row .link:hover {
+  text-decoration: underline;
+}
+
+.link-row .separator {
+  color: #444;              /* neutral text color */
+  user-select: none;
+  font-weight: normal;
+  /* no extra margin, spacing controlled by gap */
+}
 
 
+</style>
+
+<script>
+function toggleAbstract(button) {
+  const abstractDiv = button.parentElement.nextElementSibling;
+  if (abstractDiv.style.display === "none" || abstractDiv.style.display === "") {
+    abstractDiv.style.display = "block";
+    button.textContent = "Hide Abstract";
+  } else {
+    abstractDiv.style.display = "none";
+    button.textContent = "Abstract";
+  }
+}
+
+function toggleContent(button, contentClass, showLabel, hideLabel) {
+  // Find the div with class contentClass in the parent container
+  const container = button.closest('.publication');
+  const contentDiv = container.querySelector(`.${contentClass}`);
+
+  if (contentDiv.style.display === "none" || contentDiv.style.display === "") {
+    contentDiv.style.display = "block";
+    button.textContent = hideLabel;
+  } else {
+    contentDiv.style.display = "none";
+    button.textContent = showLabel;
+  }
+}
+</script>
+
+<!-- NOTE: Publication Template -->
+<!-- <div class="publication">
+  <h3>Title</h3>
+  <p>Author List</p>
+  <p>Conference/Journal, Year</p>
+
+  <p class="link-row">
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'abstract', 'Abstract', 'Hide Abstract')" 
+      class="link">
+      Abstract
+    </a> | 
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'citation', 'Citation', 'Hide Citation')" 
+      class="link">
+      Citation
+    </a> | <a href="https://example.com/paper.pdf" target="_blank" rel="noopener noreferrer" class="link">
+      additional links
+    </a>
+  </p>
+
+  <div class="abstract">
+    Paper abstract.
+  </div>
+
+  <div class="citation">
+    citation.
+  </div>
+</div> -->
+
+A full, up-to-date list of my publications can be found on my <a href="https://scholar.google.com/citations?user=RlxRP-oAAAAJ&hl=en&oi=sra" targe="_blank">Google Scholar</a> page.
+<hr>
+
+<!-- CONFERENCE PAPERS -->
+<h2>Journal and Conference Papers</h2>
+<hr>
+
+<!-- PAAWS IMWUT -->
+<div class="publication">
+  <h3>The Physical Activity Assessment Using Wearable Sensors (PAAWS) Dataset: Labeled Free-Living and Laboratory Accelerometer Data</h3>
+  <p><i>Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies</i> (IMWUT '25)</p>
+  <p><b>Veronika Potter</b>, Hoan Tran, Daniel Mobley, Suzanne M. Bertisch, Dinesh John, and Stephen Intille</p>
+
+  <p class="link-row">
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'abstract', 'Abstract', 'Hide Abstract')" 
+      class="link">
+      Abstract
+    </a> | 
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'citation', 'Citation', 'Hide Citation')" 
+      class="link">
+      Citation
+    </a> | <a href="https://doi.org/10.1145/3770639" target="_blank" rel="noopener noreferrer" class="link">
+      Link
+    </a> | <a href="{{ site.baseurl }}/assets/pdfs/Potter_PAAWS_IMWUT_2025.pdf" target="_blank" rel="noopener noreferrer" class="link">
+      PDF
+    </a> | <a href="https://github.com/mHealth-Research-Group/paaws-benchmarking" target="_blank" rel="noopener noreferrer" class="link">
+      Code
+    </a>
+  </p>
+
+  <div class="abstract">
+    Poor sleep and sedentary behavior patterns increase the risk of chronic diseases and negatively impact an individual’s health and quality of life. Large-scale surveillance studies can unobtrusively measure free-living physical activities, sedentary behaviors, and sleep using wearable sensors; however, many human activity recognition algorithms cannot reliably detect activities in true free-living settings because they are trained on data collected in a controlled, lab setting. We describe the data collection protocol and present the first release of a multimodal, multi-sensor-site dataset (PAAWS R1). The PAAWS R1 release includes ~4 hours of semi-naturalistic activities from 252 individuals and ~7 days of 24-hour, free-living activities from 20 adults. We have annotated waking day activities using video to provide second-by-second, ground-truth labels capturing short, quickly changing bouts of activity with realistic activity transitions. Additionally, we have labeled up to two nights of sleep stages from PSG data collected during some nights of the free-living protocol. The PAAWS dataset enables researchers to directly compare activity recognition algorithms on the same participants’ data across multiple collection protocols and days of free-living behaviors, encouraging convergence towards robust algorithms that could aid health research and drive novel mobile computing interventions and applications. 
+  </div>
+
+  <div class="citation">
+    Veronika Potter, Hoan Tran, Daniel Mobley, Suzanne M. Bertisch, Dinesh John, and Stephen Intille. 2025. The Physical Activity Assessment Using Wearable Sensors (PAAWS) Dataset: Labeled Laboratory and Free-Living Accelerometer Data. <i>Proc. ACM Interact. Mob. Wearable Ubiquitous Technol</i>. 9, 4, Article 204 (December 2025), 32 pages. <a href="https://doi.org/10.1145/3770639" class="link">https://doi.org/10.1145/3770639</a>
+  </div>
+</div> 
+
+<!-- ACAI IMWUT -->
+<div class="publication">
+  <h3>A Context-Assisted, Semi-Automated Activity Recall Interface Allowing Uncertainty</h3>
+  <p><i>Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies</i> (IMWUT '25)</p>
+  <p>Ha Le, <b>Veronika Potter</b>, Akshat Choube, Rithika Lakshminarayanan, Varun Mishra, and Stephen Intille</p>
+
+  <p class="link-row">
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'abstract', 'Abstract', 'Hide Abstract')" 
+      class="link">
+      Abstract
+    </a> | 
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'citation', 'Citation', 'Hide Citation')" 
+      class="link">
+      Citation
+    </a> | <a href="https://doi.org/10.1145/3770710" target="_blank" rel="noopener noreferrer" class="link">
+      Link
+    </a> | <a href="{{ site.baseurl }}/assets/pdfs/Le_ACAI_IMWUT_2025.pdf" target="_blank" rel="noopener noreferrer" class="link">
+      PDF
+    </a>
+  </p>
+
+  <div class="abstract">
+  Measuring activities and postures is an important area of research in ubiquitous computing, 
+  human-computer interaction, and personal health informatics. One approach that researchers use to 
+  collect large amounts of labeled data to develop models for activity recognition and measurement is 
+  asking participants to self-report their daily activities. Although participants can typically recall 
+  their sequence of daily activities, remembering the precise start and end times of each activity is significantly 
+  more challenging. ACAI is a novel, context-assisted ACtivity Annotation Interface that enables participants to efficiently 
+  label their activities by accepting or adjusting system-generated activity suggestions while explicitly expressing uncertainty 
+  about temporal boundaries. We evaluated ACAI using two complementary studies: a usability study with 11 participants and a 
+  two-week, free-living study with 14 participants. We compared our activity annotation system with the current gold-standard 
+  methods for activity recall in health sciences research: 24PAR and its computerized version, ACT24. Our system reduced 
+  annotation time and perceived effort while significantly improving data validity and fidelity compared to both standard 
+  human-supervised and unsupervised activity recall approaches. We discuss the limitations of our design and implications for 
+  developing adaptive, human-in-the-loop activity recognition systems used to collect self-report data on activity.
+  </div>
+
+  <div class="citation">
+  Ha Le, Veronika Potter, Akshat Choube, Rithika Lakshminarayanan, Varun Mishra, and Stephen Intille. 
+  2025. 
+  A Context-Assisted, Semi-Automated Activity Recall Interface Allowing Uncertainty. 
+  <i>Proc. ACM Interact. Mob. Wearable Ubiquitous Technol</i>. 
+  9, 4, Article 186 (December 2025), 34 pages. 
+  <a link="https://doi.org/10.1145/3770710">https://doi.org/10.1145/3770710</a> </div>
+</div> 
+
+<!-- Timelines IEEE -->
+<div class="publication">
+  <h3>An Evaluation of Temporal and Categorical Uncertainty on Timelines: A Case Study in Human Activity Recall Visualizations</h3>
+  <p><i>2025 IEEE Visualization and Visual Analytics</i> (Vis '25)</p>
+  <p><b>Veronika Potter</b>, Ha Le, Uzma Haque Syeda, Stephen Intille, and Michelle A. Borkin</p>
+
+  <p class="link-row">
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'abstract', 'Abstract', 'Hide Abstract')" 
+      class="link">
+      Abstract
+    </a> | 
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'citation', 'Citation', 'Hide Citation')" 
+      class="link">
+      Citation
+    </a> | <a class="link">
+      Link (TBD)
+    </a> | <a href="{{ site.baseurl }}/assets/pdfs/Potter_Timelines_VIS_2025.pdf" target="_blank" rel="noopener noreferrer" class="link">
+      PDF
+    </a> | <a href="https://osf.io/98p6m/" target="_blank" rel="noopener noreferrer" class="link">
+      Supplemental Material
+    </a>
+  </p>
+
+  <div class="abstract">
+  Encoding uncertainty in timelines can provide more precise and informative visualizations (e.g., visual representations of unsure times or locations in event planning timelines).
+  To evaluate the effectiveness of different temporal and categorical uncertainty representations on timelines, we conducted a mixed-methods user study with 81 participants on uncertainty in activity recall timelines (ARTs).  
+  We find that participants' accuracy is better when temporal uncertainty is encoded using transparency instead of dashing, and that a participant's visual encoding preference does not always align with their performance (e.g., they performed better with a less-preferred visual encoding technique). 
+  Additionally, qualitative findings show that existing biases of an individual alter their interpretation of ARTs. 
+  A copy of our study materials is available at <a href="https://osf.io/98p6m/">https://osf.io/98p6m/</a>.
+  </div>
+
+  <div class="citation">
+    Veronika Potter, Ha Le, Uzma Haque Syeda, Stephen Intille, and Michelle A. Borkin.
+     2025. 
+     The Physical Activity Assessment Using Wearable Sensors (PAAWS) Dataset: Labeled Laboratory and Free-Living Accelerometer Data. 
+     <i>IEEE Visualization and Visual Analytics (VIS’25)</i>. 5 pages. 
+     <!-- <a href="https://doi.org/10.1145/3770639" class="link">https://doi.org/10.1145/3770639</a> -->
+  </div></a>
+</div> 
+
+<!-- mm uEMA CHI -->
+<div class="publication">
+  <h3>Feasibility and Utility of Multimodal Micro Ecological Momentary Assessment on a Smartwatch</h3>
+  <p>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI '25)</p>
+  <p>Ha Le, <b>Veronika Potter</b>, Rithika Lakshminarayanan, Varun Mishra, and Stephen Intille</p>
+
+  <p class="link-row">
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'abstract', 'Abstract', 'Hide Abstract')" 
+      class="link">
+      Abstract
+    </a> | 
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'citation', 'Citation', 'Hide Citation')" 
+      class="link">
+      Citation
+    </a> | <a href="https://doi.org/10.1145/3706598.3714086" target="_blank" rel="noopener noreferrer" class="link">
+      Link
+    </a> | <a href="{{ site.baseurl }}/assets/pdfs/Le_MMuEMA_CHI_2025.pdf" target="_blank" rel="noopener noreferrer" class="link">
+      PDF
+    </a>
+  </p>
+
+  <div class="abstract">
+  &mu;EMAs allow participants to answer a short survey quickly with a tap on a smartwatch screen or a brief speech input. 
+  The short interaction time and low cognitive burden enable researchers to collect self-reports at high frequency (once every 5-15 minutes) while maintaining participant engagement. 
+  Systems with single input modality, however, may carry different contextual biases that could affect compliance. 
+  We combined two input modalities to create a multimodal-μ EMA system, allowing participants to choose between speech or touch input to self-report. 
+  To investigate system usability, we conducted a seven-day field study where we asked 20 participants to label their posture and/or physical activity once every five minutes throughout their waking day. 
+  Despite the intense prompting interval, participants responded to 72.4% of the prompts. We found participants gravitated towards different modalities based on personal preferences and contextual states, highlighting the need to consider these factors when designing context-aware multimodal &mu;EMA systems.  
+  </div>
+
+  <div class="citation">
+  Ha Le, Veronika Potter, Rithika Lakshminarayanan, Varun Mishra, and Stephen Intille. 2025. 
+  Feasibility and Utility of Multimodal Micro Ecological Momentary Assessment on a Smartwatch. 
+  In Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems (CHI '25). 
+  Association for Computing Machinery, New York, NY, USA, Article 1182, 1–22. 
+  <a href="https://doi.org/10.1145/3706598.3714086">https://doi.org/10.1145/3706598.3714086</a>
+  </div></a>
+</div> 
+
+
+<!-- WORKSHOP PAPERS -->
+<h2>Workshop Papers</h2>
+<hr>
+<!-- Annotation ARDUOUS -->
+<div class="publication">
+  <h3>Towards Practical, Best Practice Video Annotation to Support Human Activity Recognition</h3>
+  <p>Hoan Tran, <b>Veronika Potter</b>, Umberto Mazzucchelli, Dinesh John and Stephen Intille.</p>
+  <p>Annotation of Real-World Data for Artificial Intelligence Systems: 9th International Workshop (ARDUOUS `25)</p>
+
+  <p class="link-row">
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'abstract', 'Abstract', 'Hide Abstract')" 
+      class="link">
+      Abstract
+    </a> | 
+    <a href="javascript:void(0)" 
+      onclick="toggleContent(this, 'citation', 'Citation', 'Hide Citation')" 
+      class="link">
+      Citation
+    </a> | <a href="" class="link">
+      Link (TBD)
+    </a> | <a href="{{ site.baseurl }}/assets/pdfs/Tran_Annotation_ARDUOUS_2025.pdf" target="_blank" rel="noopener noreferrer" class="link">
+      PDF
+    </a> 
+  </p>
+
+  <div class="abstract">
+    Researchers need ground-truth activity annotations to train and evaluate wearable-sensor-based activity recognition models. 
+    Oftentimes, researchers establish ground truth by annotating the video recorded while someone engages in activity wearing sensors. 
+    The "gold-standard" video annotation practice requires two trained annotators independently annotating the same footage with a third domain expert resolving disagreements. 
+    Because such annotation is laborious, widely-used datasets have often been annotated using only a single annotator per video. 
+    Because the research community is moving towards collecting data of more complex behaviors from free-living people 24/7 and annotating more granular, fleeting activities, the annotation task grows even more challenging; the single-annotator approach may yield inaccuracies. 
+    We investigated a "silver-standard" approach: rather than using two independent annotation passes, a second annotator <b>revises</b> the work of the first annotator. 
+    The proposed approach reduced the total annotation time by 33% compared to the gold-standard approach, with near-equivalent annotation quality. 
+    The silver-standard label was in higher agreement with the gold-standard label than the single-annotator label, with Cohen's &kappa; of 0.77 and 0.68 respectively on a 16.4 h video. 
+    The silver-standard labels also had higher inter-rater reliability than the single-annotator labels, with the respective mean Cohen's &kappa; across six videos (92 h of total footage) of 0.79 and 0.68.
+  </div>
+
+  <div class="citation">
+    Hoan Tran, Veronika Potter, Umberto Mazzucchelli, Dinesh John and Stephen Intille. 
+    2025.
+    Towards Practical, Best Practice Video Annotation to Support Human Activity Recognition. 
+    <i>Annotation of Real-World Data for Artificial Intelligence Systems: 9th International Workshop</i>. 
+    <!-- <a></a> -->
+  </div></a>
+</div> 
+
+
+<!-- PREPRINT PAPERS -->
+<h2>Preprints</h2>
+<hr>
+<!-- Ford Sphere (submitted) -->
+<div class="publication">
+  <h3>Ford Spheres in the Clifford-Bianchi Setting</h3>
+  <p>Spencer Backman, Taylor Dupuy, Anton Hilado, <b>Veronika Potter</b></p>
+  <p><i>Submitted, under review.</i></p>
+
+  <p class="link-row">
+    <a href="https://arxiv.org/abs/2409.20529" target="_blank" rel="noopener noreferrer" class="link">
+      Link
+    </a> | <a href="{{ site.baseurl }}/assets/pdfs/Backman_Spheres_2024.pdf" target="_blank" rel="noopener noreferrer" class="link">
+      PDF
+    </a>
+  </p>
+
+  <div class="abstract">
+  <p>We define Ford Spheres \( P \) in hyperbolic \( $n$ \)-space associated to Clifford-Bianchi groups
+  \( $\mathrm{PLS}_2(O)$ \) for \( $O$ \) orders in rational Clifford algebras associated to positive definite, integral, primitive
+  quadratic forms. For \( $H^2$ \)
+  and \( $H^3 \)
+  these spheres correspond to the classical Ford circles and Ford
+  spheres introduced by Ford.
+  We prove the Ford spheres are an integral packing. If we assume that O is Clifford-Euclidean
+  then P is also connected. We also give connections to Dirichlet’s Theorem and Farey fractions.
+  In a discussion section, we pose some questions related to existing packings in the literature.</p>
+  </div>
+
+  <div class="citation">
+  </div></a>
+</div> 
 

@@ -10,55 +10,35 @@ redirect_from:
 {% include base_path %}
 
 Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+-----
+* M.S. in Computer Science, Northeastern University, Dec. 2025 (expected)
+  * Advised by: [Dr. Stephen Intille](https://www.khoury.northeastern.edu/home/intille/)
+* B.A. in Computer Science, University of Vermont, Dec. 2021
+  * Advised by: [Prof. Lisa Dion](https://ldion2.w3.uvm.edu/)
+* B.S. in Mathematics, University of Vermont, Dec. 2021
+  * Advised by: [Dr. Taylor Dupuy](https://tdupu.github.io/)
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
-
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
+<!-- Publications
+-----
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
+  {% endfor %}</ul> -->
   
 Teaching
+-----
+* Fall 2025: CS 4520/5520 - Mobile Application Development (iOS), *Northeastern University* 
+* Fall 2021: CS 205 - Software Engineering, *University of Vermont* 
+* Fall 2020: CEMS 050 - College of Engineering & Mathematical Sciences First Year Seminar, *University of Vermont* 
+* Spring 2020: MATH 178 - Introduction to Combinatorics, *University of Vermont* 
+
+Awards and Fellowships
+-----
+* Khoury Fellowship, *Northeastern University* (September 2022 - August 2024)
+* Senior Award in Computer Science, *University of Vermont* (May 2022)
+* Magna Cum Laude, *University of Vermont* (Dec 2021)
+* Phi Beta Kappa (Dec 2021)
+* Senior Award in Mathematics, *University of Vermont* (May 2020)
+
+<!-- Service and leadership
 ======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Currently signed in to 43 different slack teams -->
