@@ -11,8 +11,8 @@ main:
   - title: "Publications"
     url: /publications/
 
-  # - title: "For Fun"
-  #   url: /teaching/    
+  - title: "For Fun"
+    url: /for_funsies/    
         
   # - title: "Blog Posts"
   #   url: /year-archive/
